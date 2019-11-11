@@ -1,0 +1,22 @@
+{
+  "name": "ual-verto",
+  "version": "0.1.0",
+  "description": "Universal authentocator for verto",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Volentix/ual-verto.git"
+  },
+  "author": "James Harrington <jamesdonaldharrington@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Volentix/ual-verto/issues"
+  },
+  "homepage": "https://github.com/Volentix/ual-verto#readme",
+  "dependencies": {
+    "universal-authenticator-library": "^0.1.4"
+  }
+}
