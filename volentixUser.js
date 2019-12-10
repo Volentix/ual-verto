@@ -1,12 +1,12 @@
 const { Api, JsonRpc } = require('eosjs')
-const { SignatureProvider } = require('eosjs-ledger-signature-provider')
+const { SignatureProvider } = require('eosjs-volentix-signature-provider')
 const { TextDecoder, TextEncoder, } = require('text-encoding')
 const [NodeTextDecoder, NodeTextEncoder] = [textDecoder, textEncoder]
 const { UALErrorType, User } = require('universal-authenticator-library')
 
 const Name = 'Volentix'
 
-export class LedgerUser extends User {
+class VolentixUser extends User {
 
   constructor(chain, accountName, requestPermission = false, ) {
     super()
@@ -73,7 +73,7 @@ export class LedgerUser extends User {
       const keys = await this.signatureProvider.getAvailableKeys(this.requestPermission)
       return keys
     } catch (error) {
-      const message = `Unable to getKeys for account ${this.accountName}. Please make sure your ledger device is connected and unlocked`
+      const message = `Unable to getKeys for account ${this.accountName}. Please make sure your Volentix device is connected and unlocked`
       const type = UALErrorType.DataRequest
       const cause = error
       throw new Error(message, type, cause)
@@ -108,3 +108,4 @@ export class LedgerUser extends User {
     return keys
   }
 }
+module.exports = VolentixUser

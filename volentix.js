@@ -9,8 +9,8 @@ const {
   // User,
 } = require('universal-authenticator-library')
 const CONSTANTS = require('./constants')
-// import { ledgerLogo } from './ledgerLogo'
-const LedgerUser = require('./volentixUser')
+// import { volentixLogo } from './volentixLogo'
+const volentixUser = require('./volentixUser')
 const Name = 'Volentix'
 
 class Volentix extends Authenticator {
@@ -33,11 +33,11 @@ class Volentix extends Authenticator {
   }
 
   async init() {
-    console.info('Ledger initialized!')
+    console.info('Volentix initialized!')
   }
 
   /**
-   * Ledger will only work with ssl secured websites
+   * Volentix will only work with ssl secured websites
    */
   shouldRender() {
     if (window.location.protocol !== 'https:' || this.isMobile()) {
@@ -56,13 +56,13 @@ class Volentix extends Authenticator {
   }
 
   /**
-   * Connect to the ledger and request Keys
+   * Connect to the Volentix and request Keys
    *
    * @param accountName Account Name is an optional paramter
    */
   async login(accountName) {
     for (const chain of this.chains) {
-      const user = new LedgerUser(chain, accountName, this.requiresGetKeyConfirmation(accountName))
+      const user = new volentixUser(chain, accountName, this.requiresGetKeyConfirmation(accountName))
       await user.init()
       const isValid = await user.isAccountValid()
       if (!isValid) {
@@ -94,10 +94,10 @@ class Volentix extends Authenticator {
 
   getStyle() {
     return {
-      // icon: ledgerLogo,
+      // icon: volentixLogo,
       text: Name,
       textColor: CONSTANTS.white,
-      background: CONSTANTS.ledgerGreen,
+      background: CONSTANTS.primary,
     }
   }
 
