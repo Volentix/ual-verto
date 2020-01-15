@@ -1,10 +1,10 @@
 {
   "name": "ual-verto",
   "version": "0.1.0",
-  "description": "Universal authentocator for verto",
+  "description": "Universal authenticator for Volentix",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/Volentix/ual-verto#readme",
   "dependencies": {
+    "eosjs": "^20.0.0",
     "universal-authenticator-library": "^0.1.4"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
   }
 }

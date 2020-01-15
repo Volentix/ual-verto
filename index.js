@@ -1,21 +1,22 @@
-import {
+const {
   Authenticator,
   UALError,
   UALErrorType,
   User
-} from 'universal-authenticator-library'
+} = require('universal-authenticator-library')
 
 const signatureResponse = {
   wasBroadcast: true,
   transactionId: 'transaction Id'
 }
 
-export class User extends User {
-  accountName = ''
-  chains = []
+module.exports.VolentixUser = class VolentixUser extends User {
+
 
   constructor(accountName, chains) {
     super()
+    this.accountName = ''
+    this.chains = []
     this.accountName = accountName
     this.chains = chains
   }
@@ -51,11 +52,11 @@ export class User extends User {
   }
 }
 
-export class Authenticator extends Authenticator {
-  loading = true
+module.exports.VolentixAuthenticator =  class VolentixAuthenticator extends Authenticator {
 
   constructor(chains) {
     super(chains)
+    this.loading = true
   }
 
   getOnboardingLink() {
